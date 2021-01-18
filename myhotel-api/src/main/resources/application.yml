@@ -1,0 +1,30 @@
+server:
+  port: 8004
+
+spring:
+  application:
+    name: my-hotel-api
+    description: my hotel api
+    version : @project.version@
+
+zuul:
+  prefix: /api
+  routes:
+    guest-service:
+      path : /guest-service/**
+      url : http://localhost:8001
+    hotel-service:
+      path: /hotel-service/**
+      url: http://localhost:8002
+    reservation-service:
+      path: /reservation-service/**
+      url: http://localhost:8003
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8383/eureka/
+  instance:
+    hostname: localhost
