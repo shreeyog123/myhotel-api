@@ -16,7 +16,6 @@ spring:
       ddl-auto : create
       show-sql : true
 
-
 zuul:
   prefix: /api
   routes:
@@ -31,11 +30,3 @@ zuul:
       url: http://localhost:8003
   sensitive-headers: Cookie,Set-Cookie
 
-eureka:
-  client:
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl:
-      defaultZone: http://localhost:8383/eureka/
-  instance:
-    hostname: localhost
